@@ -2,6 +2,7 @@
 
 .pruebadiv{
     background-color: aqua;
+    color: brown;
 };
 
 .mc{
@@ -10,7 +11,7 @@
     height: 500px;
 }
 
-.btn{
+.btn-especial{
     background-color: blueviolet;
     color: aliceblue;
 };
