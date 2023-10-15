@@ -3,8 +3,19 @@ const router = express.Router();
 
 const pool = require('../database');
 
-router.get('/add', async (req, res) => {
-    res.render('links/add');
+
+
+router.get('/prueba', (req, res)=>{
+    res.render('links/prueba',{
+        style: '/prueba.css'
+    })
+})
+
+router.get('/add', (req, res) => {
+    res.render('links/add',{
+        title: 'holaaaa',
+        style: 'styles.css'
+    });
 });
 
 router.post('/add', async (req, res)=>{

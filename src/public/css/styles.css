@@ -1,135 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
+
+
+.pruebadiv{
+    background-color: aqua;
+};
+
+.mc{
+    background-color: aqua;
+    width: 500px;
+    height: 500px;
 }
 
-html {
-    background-color: rgb(37, 34, 39);
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    padding-top: 10%;
-}
-
-.main-container{
-    background-color: rgba(0, 0, 0, 0.312);
-    width: 50vw;
-    height: 50vh;
-    display: flex;
-    justify-content:space-evenly;
-}
-
-
-.first-container{
-    width: 50%;
-    background-color: white;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-section {
-    width: 80%;
-    height: 80%;
-    background-color: #671264;
-    border-radius: 15px;
-    display: grid;
-    justify-content: space-around;
-}
-
-.h2-iniciar-sesion{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    font-size: 20px;
-}
-
-.input-user {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-style: none;
-    border-radius: 5px;
-    width: 100%;
-    height: 100%;
-}
-
-.input-password {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 5px;
-    border-style: none;
-    width: 100%;
-    height: 100%;
-}
-
-#boton-entrar {
-   border-radius: 10px;
-    box-shadow: 1px 1.3px 4px 1px rgb(24, 24, 24);
-    border-style: none;
-    width: 90px;
-    height: 30px;
-    background-color: #511D60;
-    color: white;
-}
-
-#boton-entrar:hover {
-    background-color: #672979; 
-    color: #fff; 
-    cursor: pointer;
-}
-
-#boton-entrar:active {
-    background-color: #9754a9; 
-    color: #fff; 
-    cursor: pointer;
-}
-
-.second-container {
-    width: 50%;
-    height: 100%;
-    background-color: #671264;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.h2-iniciar-sesion-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.input-user-container {
-    width: 240px;
-    height: 40%;
-    display: flex;
-    justify-content: center;
-}
-
-.input-password-container {
-    width: 240px;
-    height: 40%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.boton-entrar-container {
-    width: 250px;
-    height: 20%;
-    display: flex;
-    justify-content: start;
-}
-
-
-.imagen-perrona {
-    width: 60%;
-    height: 60%;
-}
-
-.imagen-perrona-container {
-    display: flex;
-    justify-content: center;
-}
+.btn{
+    background-color: blueviolet;
+    color: aliceblue;
+};
