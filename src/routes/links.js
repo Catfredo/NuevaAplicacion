@@ -17,7 +17,8 @@ router.post('/add', isLoggedIn, async (req, res)=>{
     const NuevaNota = {
         taskname,
         body_task,
-        duedate
+        duedate,
+        
     };
     await pool.query('INSERT INTO task set ?', [NuevaNota]);
    // req.flash('success', 'Nota agregada correctamente');
