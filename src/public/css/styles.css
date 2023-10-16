@@ -25,9 +25,23 @@ header{
     margin-bottom: 40px;
 }
 
+.container-nav-bar {
+    display: flex;
+}
+
 .logo{
     width: 60px;
     height: 60px;
+}
+
+.container-marca {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marca {
+    color: white;
 }
 
 .bars{
@@ -136,10 +150,7 @@ h3 {
     font-size: 20px;
 }
 
-.png{
-    width: 400px;
-    height: 400px;
-}
+
 
 
 
@@ -228,4 +239,16 @@ h3 {
     column-gap: 30px;
     row-gap: 30px;
     justify-content: center;
+}
+
+/* Sing in */
+
+.card-header {
+    display: flex;
+    justify-content: center;
+}
+
+.png{
+    width: 200px;
+    height: 200px;
 }
