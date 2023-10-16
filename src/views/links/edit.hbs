@@ -3,11 +3,15 @@
        
         <div class="seccion-2">
             <h3>Editar Nota</h3>
-            <form action="/links/edit/{{Notas.ID_Nota}}" method="post">
+            <form action="/links/edit/{{Notas.id_task}}" method="post">
                     <div class="form-group">
-                        <input type="text" value="{{Notas.title}}" class="form-control" name="title" placeholder="Title" autofocus>
+                        <input type="text" value="{{Notas.taskname}}" class="form-control" name="taskname" placeholder="Title" autofocus>
                     </div>
-                    <div class="form-group"><textarea name="description" rows="2" class="form-control" placeholder="description">{{Notas.description}} </textarea>
+                    <div class="form-group"><textarea name="body_task" rows="2" class="form-control" placeholder="description">{{Notas.body_task}} </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" >Fecha de finalización</label>
+                        <input name="duedate" type="date"></input>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success btn-block">

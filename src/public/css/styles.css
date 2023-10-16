@@ -12,6 +12,7 @@ body{
     
 }
 
+/* Navbar */
 
 header{
     width: 100%;
@@ -58,7 +59,7 @@ header{
     background-color: #d049f9;
 }
 
-
+/* Agregar notas y editar */
 
 .contenedor-centrado {
     position: relative;
@@ -140,10 +141,10 @@ h3 {
     background-color: #ffffff; 
     color: #451952; 
     border-radius: 10px; 
-    padding: 20px; 
-    margin: 15px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border: 3px solid #451952;
+    width: auto;
+    height: auto + 20px;
 }
 
 .custom-card-title {
@@ -171,6 +172,7 @@ h3 {
     width: 100%;
     text-decoration: none; 
     text-align: center;
+
 }
 
 .custom-btn:hover {
@@ -180,4 +182,42 @@ h3 {
 
 .custom-text-center {
     text-align: center; 
+}
+
+.col-md-3 {
+    width: auto;
+}
+
+/* Contenedor notas */
+
+.row {
+    width: 90vw;
+    height: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 20px;
+}
+
+.container-main {
+    display: flex;
+    justify-content: center;
+}
+
+/* List links */
+
+.h1-list {
+    padding-bottom: 40px;
+}
+
+.row-list {
+    width: 90vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
 }

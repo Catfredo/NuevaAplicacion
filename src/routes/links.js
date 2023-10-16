@@ -19,45 +19,47 @@ router.get('/add', (req, res) => {
 });
 
 router.post('/add', async (req, res)=>{
-    const { title, description } = req.body
+    const { taskname, body_task, duedate } = req.body
     const NuevaNota = {
-        title,
-        description
+        taskname,
+        body_task,
+        duedate
     };
-    await pool.query('INSERT INTO NotaDePrueba set ?', [NuevaNota]);
-    req.flash('success', 'Nota agregada correctamente');
+    await pool.query('INSERT INTO task set ?', [NuevaNota]);
+   // req.flash('success', 'Nota agregada correctamente');
     res.redirect('/links');
 })
 
 router.get('/',  async (req, res)=>{
-    const Notas = await pool.query('SELECT * FROM NotaDePrueba');
+    const Notas = await pool.query('SELECT * FROM task');
     console.log(Notas);
     res.render('links/list', {Notas :  Notas})
 });
 
-router.get('/delete/:ID_Nota', async (req, res)=>{
-    const { ID_Nota } = req.params;
-    await pool.query('DELETE FROM NotaDePrueba WHERE ID_Nota = ?', [ID_Nota]);
-    req.flash('success', 'Removido exitosamente');
+router.get('/delete/:id_task', async (req, res)=>{
+    const { id_task } = req.params;
+    await pool.query('DELETE FROM task WHERE id_task = ?', [id_task]);
+    //req.flash('success', 'Removido exitosamente');
     res.redirect('/links')
 });
 
-router.get('/edit/:ID_Nota', async (req, res)=>{
-    const { ID_Nota } = req.params;
-    const Notas = await pool.query('SELECT * FROM NotaDePrueba WHERE ID_Nota = ?', [ID_Nota]);
+router.get('/edit/:id_task', async (req, res)=>{
+    const { id_task } = req.params;
+    const Notas = await pool.query('SELECT * FROM task WHERE id_task = ?', [id_task]);
     
     res.render('links/edit', {Notas: Notas[0]} );
 });
 
-router.post('/edit/:ID_Nota',  async(req, res)=>{
-    const {ID_Nota } = req.params;
-    const { title, description} = req.body;
+router.post('/edit/:id_task',  async(req, res)=>{
+    const {id_task } = req.params;
+    const { taskname, body_task, duedate} = req.body;
     const newNota ={
-        title,
-        description
+        taskname,
+        body_task,
+        duedate
     };
-    await pool.query('UPDATE NotaDePrueba set ? WHERE ID_Nota = ?', [newNota, ID_Nota]);
-    req.flash('success', 'Edición completada')
+    await pool.query('UPDATE task set ? WHERE id_task = ?', [newNota, id_task]);
+   // req.flash('success', 'Edición completada')
     res.redirect('/links');
 })
 
