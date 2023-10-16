@@ -16,6 +16,19 @@ router.post('/signup', (req, res, next) => {
     })(req, res, next);
 });
 
+
+router.get('/signin', (req,res)=>{
+    res.render('auth/signin');
+});
+
+router.post('/signin', (req, res, next)=>{
+    passport.authenticate('local.signin', {
+        successRedirect: '/profile',
+        failureRedirect: '/signin'
+    })(req, res, next);
+    
+});
+
 router.get('/profile', (req, res) =>{
     res.send('this is your profile')
 });
