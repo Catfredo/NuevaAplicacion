@@ -26,9 +26,8 @@ header{
 }
 
 .logo{
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
+    width: 60px;
+    height: 60px;
 }
 
 .bars{
@@ -138,8 +137,8 @@ h3 {
 }
 
 .png{
-    width: 40px;
-    height: 40px;
+    width: 400px;
+    height: 400px;
 }
 
 

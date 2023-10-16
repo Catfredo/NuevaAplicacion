@@ -38,7 +38,7 @@ app.use(session({
         password: database.password,
         database: database.database,
         createDatabaseTable: true
-    }, /* Opciones adicionales aquí */)
+    },)
 }));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
@@ -51,6 +51,7 @@ app.use(passport.session());
 //Global variables
 app.use((req, res, next) =>{
     app.locals.success = req.flash('success');
+    app.locals.user = req.user;
     next();
 });
 

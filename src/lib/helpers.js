@@ -12,8 +12,7 @@ helpers.matchPassword = async (password, savePassword)=>{
     try{
         return await bcrypt.compare(password, savePassword);
     } catch(e){
-        console.log(e);
-
+        console.log('Error al comparar contraseñas:', e);
     }
 };
 

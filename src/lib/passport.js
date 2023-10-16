@@ -13,7 +13,7 @@ passport.use('local.signin', new Localstrategy({
     const rows = await pool.query('SELECT * FROM users WHERE username =?', [username]);
     if(rows.length > 0){
         const user = rows[0];
-        const validPassword =await helpers.matchPassword(password, user.password);
+        const validPassword = await helpers.matchPassword(password, user.password);
         if (validPassword) {
             done(null, user);
         } else{
@@ -21,7 +21,6 @@ passport.use('local.signin', new Localstrategy({
         }
     } else{
         return done(null, false);
-
     }
 }));
 
@@ -35,17 +34,15 @@ passport.use('local.signup', new Localstrategy({
         username,
         fullname,
         password
-        
     };
     newUser.password = await helpers.encryptPassword(password);
     const result = await pool.query('INSERT INTO users SET ?', newUser);
-    newUser.id = result.insertId;
+    newUser.ID_User = result.insertId;
     return done(null, newUser);
-
 }));
 
 passport.serializeUser((user, done)=>{
-    done(null, user.id);
+    done(null, user.ID_User);
 });
 
 passport.deserializeUser(async (id,done)=>{
