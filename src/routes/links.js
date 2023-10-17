@@ -14,7 +14,8 @@ router.get('/add', isLoggedIn, (req, res) => {
 
 router.post('/add', isLoggedIn, async (req, res) => {
     const { taskname, body_task } = req.body;
-    const currentDate = new Date();
+    const currentDate = duedate ? new Date(duedate) : new Date();
+
     const NuevaNota = {
         taskname,
         body_task,
