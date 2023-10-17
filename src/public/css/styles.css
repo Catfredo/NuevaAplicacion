@@ -63,13 +63,49 @@ header{
 }
 
 .navigator ul li a:hover{
-    color: black;
-    background-color: #a63ac7;
+    background-image: linear-gradient(
+        -225deg,
+        #df65cb 0%,
+        #633496 29%,
+        #ff13d4 67%,
+        #7116e8 100%
+      );
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      animation: textclip 2s linear infinite;
+      display: inline-block;
+    }
+    
+    @keyframes textclip {
+      to {
+        background-position: -100% center;
+      }
 }
 
 .navigator ul li a:active{
-    color: rgb(255, 252, 252);
-    background-color: #d049f9;
+    background-image: linear-gradient(
+        -225deg,
+        #df65cb 0%,
+        #633496 29%,
+        #ff13d4 67%,
+        #7116e8 100%
+      );
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      animation: textclip 2s linear infinite;
+      display: inline-block;
+    }
+    
+    @keyframes textclip {
+      to {
+        background-position: -100% center;
+      }
 }
 
 /* Agregar notas y editar */
@@ -168,7 +204,7 @@ h3 {
 }
 
 .custom-card-title {
-    font-size: 1.5em; 
+    font-size: 2em; 
 }
 
 .custom-card-description {
@@ -223,11 +259,66 @@ h3 {
     row-gap: 20px;
 }
 
+.main-index {
+    display: flex;
+    justify-content: center;
+}
+
 .container-main {
     display: flex;
     justify-content: center;
 }
 
+.container-index {
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    color: #451952;
+    height: 100%;
+    background-color:transparent;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.h1-index {
+    font-weight: 900;
+}
+
+.h3-index {
+    font-size: 100px;
+    background-image: linear-gradient(
+    -225deg,
+    #df65cb 0%,
+    #633496 29%,
+    #ff13d4 67%,
+    #7116e8 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.a-index {
+    font-size: 70px;
+    
+}
+
+.a-index:hover {
+    color: #e64de1;
+}
 /* List links */
 
 .h1-list {
@@ -244,6 +335,13 @@ h3 {
     justify-content: center;
 }
 
+.container-custom-card {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    justify-content: flex-end;
+}
+
 /* Sing in */
 
 .card-header {
@@ -254,4 +352,16 @@ h3 {
 .png{
     width: 200px;
     height: 200px;
+}
+
+.gif {
+    animation-play-state: paused;
+    width: 50px;
+    height: 50px;
+    margin-left: 30%;
+}
+
+.gif:hover {
+    animation-play-state: running;
+    cursor: pointer;
 }

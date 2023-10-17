@@ -3,7 +3,10 @@
         {{#each Notas}}
             <div class="col-md-3">
                 <div class="custom-card">
-                    <h3 class="custom-card-title">{{taskname}}</h3>
+                    <div class="container-custom-card">
+                        <h3 class="custom-card-title">{{taskname}}</h3>
+                        <img class="gif" src="/css/img/lista-de-verificacion.gif" alt="" action="/" method="">
+                    </div>
                     <p class="custom-card-description">{{body_task}}</p>
                     <p class="custom-card-time">Due date: {{duedate}}</p>
                     <p class="custom-card-time">{{timeago Created_at}}</p>
