@@ -31,7 +31,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
 })
 
 router.get('/', isLoggedIn, async (req, res)=>{
-    const Notas = await pool.query('SELECT * FROM task WHERE ID_User = ?', [req.user.ID_User]);
+    const Notas = await pool.query('SELECT * FROM task WHERE ID_User = ? order by Created_at desc;', [req.user.ID_User]);
     console.log(Notas);
     res.render('links/list', {Notas :  Notas})
 });
@@ -50,19 +50,21 @@ router.get('/edit/:Id_task', isLoggedIn, async (req, res)=>{
     res.render('links/edit', {Notas: Notas[0]} );
 });
 
-router.post('/edit/:Id_task', isLoggedIn, async (req, res) => {
-    const { Id_task } = req.params;
+router.post('/add', isLoggedIn, async (req, res) => {
     const { taskname, body_task, duedate } = req.body;
     const currentDate = duedate ? new Date(duedate) : new Date();
 
-    const updatedNota = {
+    const NuevaNota = {
         taskname,
         body_task,
         duedate: currentDate, 
+        ID_User: req.user.ID_User,
+        status: false 
     };
 
-    await pool.query('UPDATE task SET ? WHERE Id_task = ?', [updatedNota, Id_task]);
-   // req.flash('success', 'Edición completada')
+    await pool.query('INSERT INTO task set ?', [NuevaNota]);
+    await pool.query('INSERT INTO history_task set ?', [NuevaNota]);
+   // req.flash('success', 'Nota agregada correctamente');
     res.redirect('/links');
 })
 
