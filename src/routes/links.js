@@ -50,15 +50,18 @@ router.get('/edit/:Id_task', isLoggedIn, async (req, res)=>{
     res.render('links/edit', {Notas: Notas[0]} );
 });
 
-router.post('/edit/:Id_task', isLoggedIn, async(req, res)=>{
-    const {Id_task } = req.params;
-    const { taskname, body_task, duedate} = req.body;
-    const newNota ={
+router.post('/edit/:Id_task', isLoggedIn, async (req, res) => {
+    const { Id_task } = req.params;
+    const { taskname, body_task, duedate } = req.body;
+    const currentDate = duedate ? new Date(duedate) : new Date();
+
+    const updatedNota = {
         taskname,
         body_task,
-        duedate,
+        duedate: currentDate, 
     };
-    await pool.query('UPDATE task set ? WHERE Id_task = ?', [newNota, Id_task]);
+
+    await pool.query('UPDATE task SET ? WHERE Id_task = ?', [updatedNota, Id_task]);
    // req.flash('success', 'Edición completada')
     res.redirect('/links');
 })

@@ -93,10 +93,10 @@ header{
 .navigator ul li a:hover{
     background-image: linear-gradient(
         -225deg,
-        #ff13d4 0%,
-        #382a88 29%,
-        #ff13d4 67%,
-        #382a88 100%
+        #ff13d4,
+        #382a88,
+        #ff13d4,
+        #382a88
       );
       background-size: auto auto;
       background-clip: border-box;
@@ -319,27 +319,26 @@ h3 {
 .h3-index {
     font-size: 100px;
     background-image: linear-gradient(
-    -225deg,
-    #ff13d4 0%,
+        -225deg,
+        #ff13d4 0%,
         #382a88 29%,
         #ff13d4 67%,
         #382a88 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 6s linear infinite;
-  display: inline-block;
-}
+      );
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      animation: textclip 6s linear infinite;
+      display: inline-block;
+    }
+    
+    @keyframes textclip {
+      to {
+        background-position: -100% center;
+      }
 
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
 }
 
 .a-index {
@@ -371,7 +370,7 @@ h3 {
     display: flex;
     justify-content: center;
     width: 100%;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 /* Sing in */
