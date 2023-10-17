@@ -65,17 +65,17 @@ header{
 .navigator ul li a:hover{
     background-image: linear-gradient(
         -225deg,
-        #df65cb 0%,
-        #633496 29%,
+        #ff13d4 0%,
+        #382a88 29%,
         #ff13d4 67%,
-        #7116e8 100%
+        #382a88 100%
       );
       background-size: auto auto;
       background-clip: border-box;
       background-size: 200% auto;
       color: #fff;
       background-clip: text;
-      animation: textclip 2s linear infinite;
+      animation: textclip 6s linear infinite;
       display: inline-block;
     }
     
@@ -88,17 +88,17 @@ header{
 .navigator ul li a:active{
     background-image: linear-gradient(
         -225deg,
-        #df65cb 0%,
-        #633496 29%,
+        #ff13d4 0%,
+        #382a88 29%,
         #ff13d4 67%,
-        #7116e8 100%
+        #382a88 100%
       );
       background-size: auto auto;
       background-clip: border-box;
       background-size: 200% auto;
       color: #fff;
       background-clip: text;
-      animation: textclip 2s linear infinite;
+      animation: textclip 6s linear infinite;
       display: inline-block;
     }
     
@@ -289,10 +289,10 @@ h3 {
     font-size: 100px;
     background-image: linear-gradient(
     -225deg,
-    #df65cb 0%,
-    #633496 29%,
-    #ff13d4 67%,
-    #7116e8 100%
+    #ff13d4 0%,
+        #382a88 29%,
+        #ff13d4 67%,
+        #382a88 100%
   );
   background-size: auto auto;
   background-clip: border-box;
@@ -301,7 +301,7 @@ h3 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
+  animation: textclip 6s linear infinite;
   display: inline-block;
 }
 
