@@ -3,21 +3,24 @@
         {{#each Notas}}
             <div class="col-md-3">
                 <div class="custom-card">
-                    <h3 class="custom-card-title">
-                        {{taskname}}
-                    </h3>
+                    <h3 class="custom-card-title">{{taskname}}</h3>
                     <p class="custom-card-description">{{body_task}}</p>
-                    <p class="custom-card-time">{{duedate}}</p>
+                    <p class="custom-card-time">Due date: {{duedate}}</p>
                     <p class="custom-card-time">{{timeago Created_at}}</p>
-                    <a href="links/delete/{{Id_task}}" class="custom-btn">Delete Note</a>
-                    <a href="/links/edit/{{Id_task}}" class="custom-btn">Edit</a>
+                    <div class="btn-container">
+                        <a href="links/delete/{{Id_task}}" class="custom-btn">Delete Task</a>
+                    </div>
+                    <div class="btn-container">
+                        <a href="/links/edit/{{Id_task}}" class="custom-btn">Edit</a>
+                    </div>
+                    
                 </div>
             </div>
         {{else}}
         <div class="col-md4 mx-auto">
             <div class="custom-card custom-text-center">
-                <h1 class="h1-list">No hay Notas Perronas guardadas</h1>
-                <a href="/links/add" class="custom-btn">Crear Nota</a>
+                <h1 class="h1-list">Not Tasks yet</h1>
+                <a href="/links/add" class="custom-btn">Create Task</a>
             </div>
         </div>
         {{/each}}

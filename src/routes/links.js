@@ -21,6 +21,7 @@ router.post('/add', isLoggedIn, async (req, res)=>{
         ID_User:req.user.ID_User
     };
     await pool.query('INSERT INTO task set ?', [NuevaNota]);
+    await pool.query('INSERT INTO history_task set ?', [NuevaNota]);
    // req.flash('success', 'Nota agregada correctamente');
     res.redirect('/links');
 })
