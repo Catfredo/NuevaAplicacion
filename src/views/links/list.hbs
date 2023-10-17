@@ -1,5 +1,10 @@
+<div class="inicio">
+    <h2>Tasks of {{user.username}}</h2>
+</div>
 <div class="container-main">
+    
     <div class="row-list">
+        
         {{#each Notas}}
             <div class="col-md-3">
                 <div class="custom-card">
@@ -10,6 +15,7 @@
                     <p class="custom-card-description">{{body_task}}</p>
                     <p class="custom-card-time">Due date: {{duedate}}</p>
                     <p class="custom-card-time">{{timeago Created_at}}</p>
+                    
                     <div class="btn-container">
                         <a href="links/delete/{{Id_task}}" class="custom-btn">Delete Task</a>
                     </div>

@@ -7,6 +7,34 @@
     box-sizing: border-box;
 }
 
+.inicio{
+    text-align: center;
+    margin: 40px;
+    font-size: 40px;
+    background-image: linear-gradient(
+        -225deg,
+        #ff13d4 0%,
+        #382a88 29%,
+        #ff13d4 67%,
+        #382a88 100%
+      );
+      border-radius: 8px;
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      animation: textclip 6s linear infinite;
+      display: inline-block;
+    }
+    
+    @keyframes textclip {
+      to {
+        background-position: -100% center;
+      }
+    
+}
+
 html{
     background-image: url(/css/img/4931029.jpg);
     
