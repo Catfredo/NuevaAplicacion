@@ -12,14 +12,17 @@ router.get('/add', isLoggedIn, (req, res) => {
     });
 });
 
-router.post('/add', isLoggedIn, async (req, res)=>{
-    const { taskname, body_task, duedate } = req.body
+router.post('/add', isLoggedIn, async (req, res) => {
+    const { taskname, body_task } = req.body;
+    const currentDate = new Date();
     const NuevaNota = {
         taskname,
         body_task,
-        duedate,
-        ID_User:req.user.ID_User
+        duedate: currentDate, 
+        ID_User: req.user.ID_User
     };
+
+
     await pool.query('INSERT INTO task set ?', [NuevaNota]);
     await pool.query('INSERT INTO history_task set ?', [NuevaNota]);
    // req.flash('success', 'Nota agregada correctamente');
