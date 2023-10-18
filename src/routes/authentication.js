@@ -31,7 +31,7 @@ router.post('/signin', isNotLoggedIn, (req, res, next)=>{
 });
 
 router.get('/completed', isLoggedIn, (req, res) =>{
-    res.render('completed');
+    res.render('/completed');
 });
 
 router.get('/logout', isLoggedIn, (req, res) => {
