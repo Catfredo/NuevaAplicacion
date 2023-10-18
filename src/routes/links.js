@@ -84,7 +84,7 @@ router.post('/edit/:Id_task', isLoggedIn, async (req, res) => {
 router.get('/completed', isLoggedIn, async (req, res)=>{
     const Notas = await pool.query('SELECT * FROM completed_task WHERE ID_User = ? order by Created_at asc;', [req.user.ID_User]);
     console.log(Notas);
-    res.render('/completed', {Notas :  Notas})
+    res.render('links/completed', {Notas :  Notas})
 });
 // Prueba de complete
 
@@ -119,8 +119,6 @@ router.get('/false/:Id_task', isLoggedIn, async (req, res) => {
     const updatedNota = {
         status: false
     };
-
-    // Debes mover esta consulta después de la asignación de Id_task
     const [currentTask] = await pool.query('SELECT * FROM display_task WHERE Id_task = ?', [Id_task]);
 
     const historyData = {
