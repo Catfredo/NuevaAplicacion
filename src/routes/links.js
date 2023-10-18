@@ -32,7 +32,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
 })
 
 router.get('/', isLoggedIn, async (req, res)=>{
-    const Notas = await pool.query('SELECT * FROM task WHERE ID_User = ? order by Created_at desc;', [req.user.ID_User]);
+    const Notas = await pool.query('SELECT * FROM task WHERE ID_User = ? order by Created_at asc;', [req.user.ID_User]);
     console.log(Notas);
     res.render('links/list', {Notas :  Notas})
 });
