@@ -13,14 +13,15 @@ router.get('/add', isLoggedIn, (req, res) => {
 });
 
 router.post('/add', isLoggedIn, async (req, res) => {
-    const { taskname, body_task, duedate } = req.body;
+    const { taskname, body_task, duedate,} = req.body;
     const currentDate = duedate ? new Date(duedate) : new Date();
 
     const NuevaNota = {
         taskname,
         body_task,
         duedate: currentDate, 
-        ID_User: req.user.ID_User
+        ID_User: req.user.ID_User,
+        status: false
     };
 
 
@@ -50,22 +51,44 @@ router.get('/edit/:Id_task', isLoggedIn, async (req, res)=>{
     res.render('links/edit', {Notas: Notas[0]} );
 });
 
-router.post('/add', isLoggedIn, async (req, res) => {
+router.post('/edit/:Id_task', isLoggedIn, async (req, res) => {
+    const { Id_task } = req.params;
     const { taskname, body_task, duedate } = req.body;
     const currentDate = duedate ? new Date(duedate) : new Date();
 
-    const NuevaNota = {
+    const updatedNota = {
         taskname,
         body_task,
         duedate: currentDate, 
-        ID_User: req.user.ID_User,
-        status: false 
     };
 
-    await pool.query('INSERT INTO task set ?', [NuevaNota]);
-    await pool.query('INSERT INTO history_task set ?', [NuevaNota]);
-   // req.flash('success', 'Nota agregada correctamente');
+    const [currentTask] = await pool.query('SELECT * FROM task WHERE Id_task = ?', [Id_task]);
+
+    const historyData = {
+        taskname: currentTask.taskname,
+        body_task: currentTask.body_task,
+        duedate: currentTask.duedate,
+        ID_User: currentTask.ID_User,
+    };
+
+    // Actualizar la tarea en la tabla task
+    await pool.query('UPDATE task SET ? WHERE Id_task = ?', [updatedNota, Id_task]);
+
+    await pool.query('INSERT INTO history_task SET ?', [historyData]);
+
+    // req.flash('success', 'Edición completada')
     res.redirect('/links');
-})
+});
+
+// Prueba de complete
+
+router.get('/completed/:Id_task', isLoggedIn, async (req, res)=>{
+    const { Id_task } = req.params;
+    const Notas = await pool.query('SELECT * FROM task WHERE Id_task = ?', [Id_task]);
+   
+    res.render('links/completed', {Notas: Notas[0]} );
+});
+
+//Termino de la prueba
 
 module.exports = router;
