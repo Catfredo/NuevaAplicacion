@@ -3,6 +3,7 @@ const router = express.Router();
 
 const pool = require('../database');
 const {isLoggedIn} = require('../lib/auth');
+const status = require('statuses');
 
 
 router.get('/add', isLoggedIn, (req, res) => {
@@ -23,7 +24,6 @@ router.post('/add', isLoggedIn, async (req, res) => {
         ID_User: req.user.ID_User,
         status: false
     };
-
 
     await pool.query('INSERT INTO task set ?', [NuevaNota]);
     await pool.query('INSERT INTO history_task set ?', [NuevaNota]);
@@ -51,7 +51,7 @@ router.get('/edit/:Id_task', isLoggedIn, async (req, res)=>{
     res.render('links/edit', {Notas: Notas[0]} );
 });
 
-router.post('/edit/:Id_task', isLoggedIn, async (req, res) => {
+router.put('/edit/:Id_task', isLoggedIn, async (req, res) => {
     const { Id_task } = req.params;
     const { taskname, body_task, duedate } = req.body;
     const currentDate = duedate ? new Date(duedate) : new Date();
@@ -82,12 +82,14 @@ router.post('/edit/:Id_task', isLoggedIn, async (req, res) => {
 
 // Prueba de complete
 
-router.get('/completed/:Id_task', isLoggedIn, async (req, res)=>{
+router.put('/completed', isLoggedIn, async (req, res)=>{
     const { Id_task } = req.params;
-    const Notas = await pool.query('SELECT * FROM task WHERE Id_task = ?', [Id_task]);
+    const Notas = await pool.query('UPDATE task SET status = 1 WHERE Id_task SET = ?', [Id_task]);
    
     res.render('links/completed', {Notas: Notas[0]} );
 });
+
+
 
 //Termino de la prueba
 
